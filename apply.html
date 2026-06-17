@@ -12,6 +12,21 @@
 
   gtag('config', 'AW-18240298925');
 </script>
+<!-- Event snippet for 申し込み conversion -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18240298925/oPFUCLu6osAcEK2_0_lD',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 <title>お申し込み受付 — トリカエス</title>
 <meta name="description" content="トリカエスへのお申し込みありがとうございます。担当者から追ってご連絡いたします。">
 <meta name="robots" content="noindex,nofollow">

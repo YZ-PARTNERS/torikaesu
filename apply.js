@@ -132,6 +132,11 @@
       return;
     }
 
+    // Google広告のコンバージョン計測（送信ボタン押下＝検証通過時に着火）
+    if (typeof gtag_report_conversion === 'function') {
+      try { gtag_report_conversion(); } catch (_) {}
+    }
+
     // 診断コンテキストを取得
     let diagnosisResult = null;
     let diagnosisAnswers = null;

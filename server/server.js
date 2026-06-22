@@ -462,7 +462,7 @@ setInterval(() => {
 app.get("/api/health", (req, res) => {
   res.json({
     status: "ok",
-    model: "claude-opus-4-7",
+    model: "claude-sonnet-4-6",
     apiKeyConfigured: Boolean(process.env.ANTHROPIC_API_KEY),
   });
 });
@@ -497,12 +497,12 @@ app.post("/api/diagnose", async (req, res) => {
     const startedAt = Date.now();
 
     const response = await client.messages.create({
-      model: "claude-opus-4-7",
+      model: "claude-sonnet-4-6",
       max_tokens: 6000,
       cache_control: { type: "ephemeral" },
       thinking: { type: "adaptive" },
       output_config: {
-        effort: "high",
+        effort: "medium",
         format: {
           type: "json_schema",
           schema: OUTPUT_SCHEMA,
@@ -739,7 +739,7 @@ app.listen(PORT, () => {
     `Google Sheets:          ${GOOGLE_SHEETS_WEBHOOK ? "連携有効" : "未設定（SHEETS_SETUP.md参照）"}`,
   );
   console.log(
-    `Model:                  claude-opus-4-7 (adaptive thinking, effort=high)`,
+    `Model:                  claude-sonnet-4-6 (adaptive thinking, effort=medium)`,
   );
   if (!process.env.ANTHROPIC_API_KEY) {
     console.warn(

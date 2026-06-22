@@ -10,8 +10,8 @@
   //   （または `vercel dev` で静的配信とAPIを同一オリジンで起動）
   const API_ENDPOINT = '/api/diagnose';
 
-  // APIタイムアウト（ミリ秒）
-  const API_TIMEOUT_MS = 45000;
+  // APIタイムアウト（ミリ秒）。Vercel関数の上限(60秒)内に収めるため58秒に設定。
+  const API_TIMEOUT_MS = 58000;
 
   // ============================================
   // 定数
@@ -755,7 +755,7 @@
     const sourceEl = document.getElementById('sourceIndicator');
     if (sourceEl) {
       if (fromAi) {
-        sourceEl.textContent = '⚡ Claude Opus 4.7 による判例ベース診断・手続き情報の提示';
+        sourceEl.textContent = '⚡ Claude Sonnet 4.6 による判例ベース診断・手続き情報の提示';
         sourceEl.className = 'diag-source-indicator ai';
       } else {
         sourceEl.textContent = '◆ 簡易ロジックによる診断・手続き情報の提示（AI接続不可）';

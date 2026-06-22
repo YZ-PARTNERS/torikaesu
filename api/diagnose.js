@@ -469,12 +469,12 @@ export default async function handler(req, res) {
     const startedAt = Date.now();
 
     const response = await client.messages.create({
-      model: "claude-opus-4-7",
+      model: "claude-sonnet-4-6",
       max_tokens: 6000,
       cache_control: { type: "ephemeral" },
       thinking: { type: "adaptive" },
       output_config: {
-        effort: "high",
+        effort: "medium",
         format: {
           type: "json_schema",
           schema: OUTPUT_SCHEMA,
